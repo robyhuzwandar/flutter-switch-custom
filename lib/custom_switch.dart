@@ -14,7 +14,7 @@ class CustomSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var tween = MultiTween<_SwitchBoxProps>()
-      ..add(_SwitchBoxProps.paddingLeft, 0.0.tweenTo(30.0), 1.milliseconds)
+      ..add(_SwitchBoxProps.paddingLeft, 0.0.tweenTo(30.0), 100.milliseconds)
       ..add(_SwitchBoxProps.color, Color(0xFFC5C5C5).tweenTo(Color(0xFF25333D)),
           1.milliseconds)
       ..add(_SwitchBoxProps.text, ConstantTween(offIcon ?? ""), 1.milliseconds)
@@ -41,7 +41,10 @@ class CustomSwitch extends StatelessWidget {
         alignment: AlignmentDirectional.centerStart,
         children: [
           Container(
-              width: 60, height: 5, color: value.get(_SwitchBoxProps.color)),
+            width: 60,
+            height: 5,
+            decoration: _outerBoxDecoration(value.get(_SwitchBoxProps.color)),
+          ),
           Positioned(
               child: Padding(
                   padding: EdgeInsets.only(
@@ -65,10 +68,7 @@ class CustomSwitch extends StatelessWidget {
 
   BoxDecoration _outerBoxDecoration(Color color) => BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(30)),
-        border: Border.all(
-          width: 2,
-          color: color,
-        ),
+        color: color,
       );
 
   static final labelStyle = TextStyle(
