@@ -1,4 +1,4 @@
-# flutter_custom_switch_demo
+# flutter_custom_switch
 
 A new Flutter application.
 
