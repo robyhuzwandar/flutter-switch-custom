@@ -8,7 +8,7 @@ class Payground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('PLAYGROUND')),
-      body: Center(child: SwitchButton()),
+      body: Center(child: SwitchButton(onIcon: '✓')),
     );
   }
 }

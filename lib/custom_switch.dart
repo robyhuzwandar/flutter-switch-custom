@@ -6,8 +6,10 @@ enum _SwitchBoxProps { paddingLeft, color, text, rotation }
 
 class CustomSwitch extends StatelessWidget {
   final bool switched;
+  final String offIcon;
+  final String onIcon;
 
-  CustomSwitch({this.switched});
+  CustomSwitch({this.switched, this.offIcon, this.onIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +17,8 @@ class CustomSwitch extends StatelessWidget {
       ..add(_SwitchBoxProps.paddingLeft, 0.0.tweenTo(30.0), 1.milliseconds)
       ..add(_SwitchBoxProps.color, Color(0xFFC5C5C5).tweenTo(Color(0xFF25333D)),
           1.milliseconds)
-      ..add(_SwitchBoxProps.text, ConstantTween(""), 1.milliseconds)
-      ..add(_SwitchBoxProps.text, ConstantTween("✓"), 1.milliseconds);
+      ..add(_SwitchBoxProps.text, ConstantTween(offIcon ?? ""), 1.milliseconds)
+      ..add(_SwitchBoxProps.text, ConstantTween(onIcon ?? ""), 1.milliseconds);
 
     return CustomAnimation<MultiTweenValues<_SwitchBoxProps>>(
       control: switched
